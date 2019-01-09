@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Build Nginx image
+    docker_image:
+      path: ./docker_nginx
+      name: mmarabella/my-nginx-hub
+      tag: 0.1
+      password: DockerHub44$$
+      push: yes

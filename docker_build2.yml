@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Build Nginx image
+    docker_image:
+      path: ./docker_nginx
+      name: my-nginx
+      tag: 0.1
+
+  - name: Create Nginx container
+    docker_container:
+      name: my-nginx2
+      image: my-nginx:0.1
+      ports:
+        - "80:80"
+      env:
+        KEY: value
+      command: sleep infinity
